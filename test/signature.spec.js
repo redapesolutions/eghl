@@ -1,7 +1,8 @@
 /* global describe, it, before */
 
 import chai from 'chai'
-import {requestSignature, hashToString, optionalValues, orderedStringFromValues} from '../src/signature'
+import {paymentRequest, paymentResponse,
+  hashToString, optionalValues, orderedStringFromValues} from '../src/signature'
 import isString from 'lodash/isString'
 import isFunction from 'lodash/isFunction'
 
@@ -81,13 +82,13 @@ describe('Signature generation', () => {
     */
     describe('without any non-mandatory item', () => {
       it('should return correct hash', () => {
-        expect(requestSignature({
+        expect(paymentRequest({
           Password: 'abc123',
+          CurrencyCode: 'MYR', 
           ServiceID: 'S22',
           PaymentID: 'PAYTEST123',
           MerchantReturnURL: 'https://www.shop.com/success.asp',
           Amount: 12.34,
-          CurrencyCode: 'MYR', 
           CustIP: '113.210.6.150', 
           PageTimeout: 900,
           CardNo: '4444333322221111'
@@ -95,4 +96,34 @@ describe('Signature generation', () => {
       })
     })
   })
+  describe('payment response', () => {
+    it('should return correct hash', () => {
+      expect(paymentResponse({
+        Password: 'abc123',
+        TxnID: 'TESTTXN123',
+        ServiceID: 'S22',
+        Param7: '77',
+        PaymentID: 'PAYTEST123',
+        TxnStatus: '1',
+        Amount: '12.34',
+        CurrencyCode: 'MYR',
+        AuthCode: '123456',
+        OrderNumber: '0007901000',
+        Param6: '66',
+      })).to.equal('8795c391a3091585295906a0694d9d13d29c38aa3d4d4521385f222ac19fb773')
+    })
+  })
+  describe('query/reversal/capture/refund request', () => {
+    it('should return correct hash', () => {
+      expect(paymentResponse({
+        Password: 'abc123',
+        PaymentID: 'PAYTEST123',
+        ServiceID: 'S22',
+        Amount: '12.34',
+        CurrencyCode: 'MYR',
+      })).to.equal('320b0e212a875228fb80efd7604534af47055e56167aa7e83842cf68788097b5')
+    })
+  })
 });
+
+
