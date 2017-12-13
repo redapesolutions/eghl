@@ -1,0 +1,55 @@
+{
+  "name": "vuex-utils",
+  "version": "1.0.8",
+  "description": "Utils for Vuex common operations",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --env dev && webpack --env build",
+    "dev": "webpack --progress --colors --watch --env dev",
+    "test": "mocha --require babel-core/register --colors ./test/*.spec.js",
+    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matiboy/vuex-utils.git"
+  },
+  "keywords": [
+    "webpack",
+    "es6",
+    "starter",
+    "library",
+    "universal",
+    "umd",
+    "commonjs"
+  ],
+  "author": "Matiboy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matiboy/vuex-utils/issues"
+  },
+  "homepage": "https://github.com/matiboy/vuex-utils",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.12.0",
+    "eslint-loader": "^1.9.0",
+    "jest": "^21.2.1",
+    "mocha": "^4.0.1",
+    "regenerator-runtime": "^0.11.1",
+    "webpack": "^3.10.0",
+    "yargs": "^10.0.3"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "crypto-js": "^3.1.9-1",
+    "lodash": "^4.17.4",
+    "ramda": "^0.25.0"
+  }
+}
