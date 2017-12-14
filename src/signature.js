@@ -1,11 +1,11 @@
-import SHA256 from 'crypto-js/SHA256'
+import crypto from 'crypto-js'
 import defaults from 'lodash/defaults'
 import {pipe} from 'ramda'
 
-export const hashToString = (text) => SHA256(text).toString()
+export const hashToString = (text) => crypto.SHA256(text).toString()
 
 export const optionalValues = (...keys) => (values) => {
-  keys.forEach(k => values[k] = values[k] || '')
+  keys.forEach(k => {values[k] = values[k] || ''})
   return {...values}
 }
 

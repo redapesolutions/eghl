@@ -35,12 +35,14 @@ export const buildPaymentRequestURL = (baseURL, Password, values) => {
   const requestURL = buildUrl(`https://${baseURL}`, {
     queryParams: {
       ...values,
-      signature: paymentRequest({Password, ...values})
+      HashValue: paymentRequest({Password, ...values})
     }
   })
+
   console.log(requestURL)
 }
 
 export const buildSaleRequestURL = (baseURL, Password, values) => {
   return buildPaymentRequestURL(baseURL, Password, {...values, TransactionType: 'SALES'})
 }
+
