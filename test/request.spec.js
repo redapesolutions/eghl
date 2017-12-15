@@ -1,6 +1,6 @@
 
 import chai from 'chai'
-import { buildPaymentRequestURL } from '../src/request'
+import { buildPaymentRequestURL, buildQueryRequestUrl } from '../src/request'
 import isString from 'lodash/isString'
 import isFunction from 'lodash/isFunction'
 import random from 'lodash/random'
@@ -32,5 +32,20 @@ describe('Request URL generation', () => {
         CustEmail: 'dawidpol1@gmail.com',
         CustPhone: '487321728'
       })))
+  })
+  it('should generate a query url', () => {
+    const url = buildQueryRequestUrl(
+      API_URL,
+      MERCHANT_PASSWORD,
+      {
+        Amount: 13.64,
+        PymtMethod: PAYMENT_METHOD.DirectDebit,
+        ServiceID: MERCHANT,
+        PaymentID: 29658176626,
+        CurrencyCode: CURRENCIES.MY
+      })
+
+    console.log(url)
+    expect(isString(url))
   })
 })

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import buildUrl from 'build-url'
-import {paymentRequest} from './signature'
+import { paymentRequest, queryRequest } from './signature'
 
 /*
 {
@@ -35,14 +35,28 @@ export const buildPaymentRequestURL = (baseURL, Password, values) => {
   const requestURL = buildUrl(`https://${baseURL}`, {
     queryParams: {
       ...values,
-      HashValue: paymentRequest({Password, ...values})
+      HashValue: paymentRequest({ Password, ...values })
     }
   })
 
   console.log(requestURL)
+  return requestURL;
 }
 
 export const buildSaleRequestURL = (baseURL, Password, values) => {
-  return buildPaymentRequestURL(baseURL, Password, {...values, TransactionType: 'SALES'})
+  return buildPaymentRequestURL(baseURL, Password, { ...values, TransactionType: 'SALES' })
 }
 
+export const buildQueryRequestUrl = (baseURL, Password, values) => {
+  values = {
+    ...values,
+    TransactionType: 'QUERY'
+  }
+
+  return buildUrl(`https://${baseURL}`, {
+    queryParams: {
+      ...values,
+      HashValue: queryRequest({ Password, ...values})
+    }
+  })
+}
