@@ -19,9 +19,12 @@ if (env === 'build') {
 const config = {
   entry: {
     index: './src/index.js',
-    utils: './src/utils.js',
-    loading: './src/loading.js',
-    form: './src/form.js'
+    common: './src/common.js',
+    currencies: './src/currencies.js',
+    paymentMethods: './src/paymentMethods.js',
+    request: './src/request.js',
+    response: './src/response.js',
+    signature: './src/signature.js'
   },
   devtool: 'source-map',
   output: {

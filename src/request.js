@@ -1,4 +1,3 @@
-import axios from 'axios'
 import buildUrl from 'build-url'
 import {paymentRequest} from './signature'
 

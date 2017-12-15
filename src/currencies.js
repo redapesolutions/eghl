@@ -1,5 +1,5 @@
 export default {
-  MY: 'MYR', 
+  MY: 'MYR',
   SG: 'SGD',
   TH: 'THB',
   CN: 'CNY',

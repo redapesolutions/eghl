@@ -1,5 +1,4 @@
 import crypto from 'crypto-js'
-import defaults from 'lodash/defaults'
 import {pipe} from 'ramda'
 
 export const hashToString = (text) => crypto.SHA256(text).toString()
@@ -26,11 +25,10 @@ export const paymentRequest = pipe(
 )
 
 export const paymentResponse = hashFromValues(
-  'Password', 'TxnID', 'ServiceID','PaymentID','TxnStatus', 
+  'Password', 'TxnID', 'ServiceID', 'PaymentID', 'TxnStatus',
   'Amount', 'CurrencyCode', 'AuthCode', 'OrderNumber', 'Param6', 'Param7'
 )
 
 export const queryRequest = hashFromValues(
-  'Password','ServiceID' ,'PaymentID' ,'Amount' ,'CurrencyCode'
+  'Password', 'ServiceID', 'PaymentID', 'Amount', 'CurrencyCode'
 )
-
