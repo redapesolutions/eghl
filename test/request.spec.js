@@ -14,7 +14,7 @@ const expect = chai.expect
 
 describe('Request URL generation', () => {
   it('should generate a url', () => {
-    expect(isString(buildPaymentRequestURL(
+    let url = buildPaymentRequestURL(
       API_URL,
       MERCHANT_PASSWORD,
       {
@@ -31,7 +31,9 @@ describe('Request URL generation', () => {
         CustName: 'Dawid',
         CustEmail: 'dawidpol1@gmail.com',
         CustPhone: '487321728'
-      })))
+      })
+
+    expect(isString(url) && url != null)
   })
   it('should generate a query url', () => {
     const url = buildQueryRequestUrl(
@@ -46,6 +48,6 @@ describe('Request URL generation', () => {
       })
 
     console.log(url)
-    expect(isString(url))
+    expect(isString(url) && url != null)
   })
 })
