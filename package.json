@@ -1,7 +1,7 @@
 {
-  "name": "vuex-utils",
-  "version": "1.0.8",
-  "description": "Utils for Vuex common operations",
+  "name": "eghl",
+  "version": "0.8.0",
+  "description": "eGHL library",
   "main": "index.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matiboy/vuex-utils.git"
+    "url": "https://github.com/redapesolutions/eghl.git"
   },
   "keywords": [
     "webpack",
@@ -22,12 +22,12 @@
     "umd",
     "commonjs"
   ],
-  "author": "Matiboy",
+  "author": "redapesolutions",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matiboy/vuex-utils/issues"
+    "url": "https://github.com/redapesolutions/eghl/issues"
   },
-  "homepage": "https://github.com/matiboy/vuex-utils",
+  "homepage": "https://github.com/redapesolutions/eghl",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
