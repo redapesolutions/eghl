@@ -40,3 +40,5 @@ loading.js
 loading.js.map
 utils.js
 utils.js.map
+
+npm-debug.log.*
