@@ -24,7 +24,7 @@ describe('Request URL generation', () => {
         ServiceID: MERCHANT,
         PaymentID: random(9999999, 9999999999999),
         OrderNumber: 12345,
-        PaymentDesc: 'Desc',
+        PaymentDesc: 'Desc Desc',
         MerchantReturnURL: 'https://2ccaf4a8.ngrok.io/',
         CurrencyCode: CURRENCIES.MY,
         CustIP: '115.110.110.21',
@@ -33,7 +33,30 @@ describe('Request URL generation', () => {
         CustPhone: '487321728'
       })
 
-    expect(isString(url) && url != null)
+    expect(isString(url) && url != null).to.equal(true)
+  })
+  it('should encode values', () => {
+    let url = buildPaymentRequestURL(
+      API_URL,
+      MERCHANT_PASSWORD,
+      {
+        Amount: 13.64,
+        TransactionType: 'SALE',
+        PymtMethod: PAYMENT_METHOD.Any,
+        ServiceID: MERCHANT,
+        PaymentID: random(9999999, 9999999999999),
+        OrderNumber: 12345,
+        PaymentDesc: 'Desc Desc',
+        MerchantReturnURL: 'https://2ccaf4a8.ngrok.io/',
+        CurrencyCode: CURRENCIES.MY,
+        CustIP: '115.110.110.21',
+        CustName: 'Dawid',
+        CustEmail: 'dawidpol1@gmail.com',
+        CustPhone: '487321728'
+      })
+
+    expect(isString(url) && url != null).to.equal(true)
+    expect(url.indexOf('PaymentDesc=Desc%20Desc') > -1).to.equal(true)
   })
   it('should generate a query url', () => {
     const url = buildQueryRequestUrl(
@@ -48,6 +71,6 @@ describe('Request URL generation', () => {
       })
 
     console.log(url)
-    expect(isString(url) && url != null)
+    expect(isString(url) && url != null).to.equal(true)
   })
 })

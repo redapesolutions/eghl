@@ -1,4 +1,5 @@
 import buildUrl from 'build-url'
+import { encodeValues } from './common'
 import { paymentRequest, queryRequest } from './signature'
 
 /*
@@ -30,10 +31,11 @@ import { paymentRequest, queryRequest } from './signature'
   Param6,
   Param7
 }*/
+
 export const buildPaymentRequestURL = (baseURL, Password, values) => {
   const requestURL = buildUrl(`https://${baseURL}`, {
     queryParams: {
-      ...values,
+      ...encodeValues(values),
       HashValue: paymentRequest({ Password, ...values })
     }
   })
@@ -54,8 +56,8 @@ export const buildQueryRequestUrl = (baseURL, Password, values) => {
 
   return buildUrl(`https://${baseURL}`, {
     queryParams: {
-      ...values,
-      HashValue: queryRequest({ Password, ...values})
+      ...encodeValues(values),
+      HashValue: queryRequest({ Password, ...values })
     }
   })
 }
