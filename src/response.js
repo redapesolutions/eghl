@@ -1,6 +1,6 @@
 import { convertUrlParametersToObject } from './common'
 import { paymentResponse } from './signature'
-import TransactionStatus from './TransactionStatus'
+import TransactionStatus from './transactionStatus'
 import { TransactionPending, TransactionFailed, SignatureNotMatching } from './errors'
 
 export const validatePaymentResponse = (body, merchantPassword) => {

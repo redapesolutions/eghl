@@ -24,7 +24,8 @@ const config = {
     paymentMethods: './src/paymentMethods.js',
     request: './src/request.js',
     response: './src/response.js',
-    signature: './src/signature.js'
+    signature: './src/signature.js',
+    transactionStatus: './src/transactionStatus.js'
   },
   devtool: 'source-map',
   output: {
