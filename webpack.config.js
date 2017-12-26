@@ -24,6 +24,7 @@ const config = {
     paymentMethods: './src/paymentMethods.js',
     request: './src/request.js',
     response: './src/response.js',
+    errors: './src/errors.js',
     signature: './src/signature.js',
     transactionStatus: './src/transactionStatus.js'
   },
