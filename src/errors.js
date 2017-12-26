@@ -4,7 +4,7 @@ TransactionPending.prototype = new Error('Transaction pending');
 
 export function TransactionFailed() {
 }
-TransactionPending.prototype = new Error('Transaction failed');
+TransactionFailed.prototype = new Error('Transaction failed');
 
 export function SignatureNotMatching() {
 }
