@@ -42,3 +42,11 @@ utils.js
 utils.js.map
 
 npm-debug.log.*
+
+# Exclude build files
+*.js
+*.js.map
+
+#include all other files
+!webpack.config.js
+

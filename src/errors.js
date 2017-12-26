@@ -1,11 +1,16 @@
-export function TransactionPending() {
+export function TransactionPending(responseData) {
+  this.message = 'Transaction pending'
+  this.responseData = responseData
 }
-TransactionPending.prototype = new Error('Transaction pending');
+TransactionPending.prototype = Error.prototype;
 
-export function TransactionFailed() {
+export function TransactionFailed(responseData) {
+  this.message = 'Transaction failed'
+  this.responseData = responseData
 }
-TransactionFailed.prototype = new Error('Transaction failed');
+TransactionFailed.prototype = Error.prototype;
 
 export function SignatureNotMatching() {
+  this.message = 'Signature not matching'
 }
-SignatureNotMatching.prototype = new Error('Signature not matching');
+SignatureNotMatching.prototype = Error.prototype;
