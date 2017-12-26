@@ -32,19 +32,21 @@ export const getResponseValues = (body) => {
 }
 
 export const validateAndProcessPaymentResponse = (body, merchantPassword) => {
+  console.log('Hahahah 12345678')
   body = convertUrlParametersToObject(body)
 
   if (!validatePaymentResponse(body, merchantPassword)) {
     throw new SignatureNotMatching()
   }
+  let responseData = getResponseValues(body)
 
   switch (body.TxnStatus) {
     case TransactionStatus.SUCCESSFUL:
-      return getResponseValues(body)
+      return responseData
     case TransactionStatus.FAILED:
-      throw new TransactionFailed()
+      throw new TransactionFailed(responseData)
     case TransactionStatus.PENDING:
-      throw new TransactionPending()
+      throw new TransactionPending(responseData)
     default:
       throw new Error('Unknown payment status')
   }
