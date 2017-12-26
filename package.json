@@ -8,7 +8,8 @@
     "dev": "webpack --progress --colors --watch --env dev",
     "test": "mocha --require babel-core/register --colors ./test/*.spec.js",
     "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
