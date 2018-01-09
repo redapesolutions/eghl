@@ -2,6 +2,8 @@
 
 eGHL payment gateway library
 
+![CircleCI](https://circleci.com/gh/redapesolutions/eghl.svg?style=shield&circle-token=:circle-token)
+
 ## Features
 
 * Generate url for payment page from details including hash
