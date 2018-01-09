@@ -12,3 +12,16 @@ eGHL payment gateway library
 
 1. `npm install eghl`
 1. `import {buildSalesRequestURL} from 'eghl'`
+
+## Changelog
+
+### v0.8.7
+
+* use native encode URI component for more accurate encoding
+* fix Error focused tests
+* cleanup
+
+## Authors
+
+* [Dawid](https://github.com/Dawidpol)
+* [Mat](https://github.com/matiboy)
