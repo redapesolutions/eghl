@@ -1,15 +1,7 @@
-import encodeUrl from 'encodeurl'
+import mapValues from 'lodash/mapValues'
 
 export const convertUrlParametersToObject = (string) => {
   return JSON.parse('{"' + decodeURI(string).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
 }
 
-export const encodeValues = (values) => {
-  for (let property in values) {
-    let value = values[property]
-
-    values[property] = encodeUrl(value)
-  }
-
-  return values
-}
+export const encodeValues = values => mapValues(values, x => encodeURIComponent(x))
