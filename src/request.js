@@ -40,7 +40,6 @@ export const buildPaymentRequestURL = (baseURL, Password, values) => {
     }
   })
 
-  console.log(requestURL)
   return requestURL;
 }
 

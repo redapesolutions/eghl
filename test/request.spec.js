@@ -33,7 +33,7 @@ describe('Request URL generation', () => {
         CustPhone: '487321728'
       })
 
-    expect(isString(url) && url != null).to.equal(true)
+    expect(isString(url) && url != null).to.be.true
   })
   it('should encode values', () => {
     let url = buildPaymentRequestURL(
@@ -55,8 +55,9 @@ describe('Request URL generation', () => {
         CustPhone: '487321728'
       })
 
-    expect(isString(url) && url != null).to.equal(true)
-    expect(url.indexOf('PaymentDesc=Desc%20Desc') > -1).to.equal(true)
+    expect(isString(url) && url != null).to.be.true
+    expect(url.includes('PaymentDesc=Desc%20Desc')).to.be.true
+    expect(url.includes('dawidpol1%40gmail.com')).to.be.true
   })
   it('should generate a query url', () => {
     const url = buildQueryRequestUrl(
@@ -70,7 +71,6 @@ describe('Request URL generation', () => {
         CurrencyCode: CURRENCIES.MY
       })
 
-    console.log(url)
-    expect(isString(url) && url != null).to.equal(true)
+    expect(isString(url) && url != null).to.be.true
   })
 })

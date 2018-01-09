@@ -9,7 +9,6 @@ export const validatePaymentResponse = (body, merchantPassword) => {
     ...body
   })
 
-  console.log(signature)
   if (signature !== body.HashValue2) {
     return false;
   }
@@ -32,7 +31,6 @@ export const getResponseValues = (body) => {
 }
 
 export const validateAndProcessPaymentResponse = (body, merchantPassword) => {
-  console.log('Hahahah 12345678')
   body = convertUrlParametersToObject(body)
 
   if (!validatePaymentResponse(body, merchantPassword)) {
